@@ -4,3 +4,10 @@
 --
 
 vim.keymap.set("n", "<leader>gg", ":LazyGit<cr>", { desc = "Abrir LazyGit" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+  callback = function()
+    vim.keymap.set("n", "<leader>fa", "<cmd>EslintFixAll<CR>", { buffer = true, desc = "Fix all ESLint errors" })
+  end,
+})
