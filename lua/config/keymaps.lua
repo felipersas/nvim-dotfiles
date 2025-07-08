@@ -3,11 +3,18 @@
 -- Add any additional keymaps here
 --
 
-vim.keymap.set("n", "<leader>gg", ":LazyGit<cr>", { desc = "Abrir LazyGit" })
+-- access lazyGit
+vim.keymap.set("n", "<leader>gt", ":LazyGit<cr>", { desc = "Abrir LazyGit" })
 
+-- EslintFixAll
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
   callback = function()
     vim.keymap.set("n", "<leader>fa", "<cmd>EslintFixAll<CR>", { buffer = true, desc = "Fix all ESLint errors" })
   end,
 })
+
+-- delete line without yank
+vim.keymap.set("n", "d", '"_d', { noremap = true })
+vim.keymap.set("n", "D", '"_D', { noremap = true })
+vim.keymap.set("v", "d", '"_d', { noremap = true })
