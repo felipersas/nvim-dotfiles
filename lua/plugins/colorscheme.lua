@@ -1,5 +1,9 @@
 return {
-  { "datsfilipe/min-theme.nvim" },
+  {
+    "webhooked/kanso.nvim",
+    lazy = false,
+    priority = 1000,
+  },
   -- {
   --   "ellisonleao/gruvbox.nvim",
   --   priority = 1000, -- Força carregar primeiro
